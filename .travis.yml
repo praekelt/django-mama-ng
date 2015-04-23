@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+before_script:
+  - ./setuptests.sh
+install:
+  - "pip install -r ./django_mama_ng/requirements.txt --use-mirrors"
+  - "pip install -r ./django_mama_ng/requirements-dev.txt --use-mirrors"
+script:
+  - flake8 .
+  - ./django_mama_ng/runtests.sh

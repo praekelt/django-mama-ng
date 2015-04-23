@@ -1,0 +1,8 @@
+Django==1.8
+djangorestframework
+dj-database-url
+psycopg2
+raven
+gunicorn
+django-filter
+git+ssh://git@github.com/praekelt/django-messaging-contentstore.git

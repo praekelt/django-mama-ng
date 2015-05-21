@@ -5,4 +5,4 @@ psycopg2
 raven
 gunicorn
 django-filter
-git+ssh://git@github.com/praekelt/django-messaging-contentstore.git
+-e git+ssh://git@github.com/praekelt/django-messaging-contentstore.git

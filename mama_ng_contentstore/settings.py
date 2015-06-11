@@ -1,22 +1,21 @@
 """
-Django settings for django_mama_ng project.
+Django settings for mama_ng_contentstore project.
 
 """
 
 import os
 
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = os.environ.get('SECRET_KEY', 'REPLACEME')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = None
+DEBUG = os.environ.get('DEBUG', None)
 
-TEMPLATE_DEBUG = None
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['*']
 
@@ -51,18 +50,24 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'django_mama_ng.urls'
+ROOT_URLCONF = 'mama_ng_contentstore.urls'
 
-WSGI_APPLICATION = 'django_mama_ng.wsgi.application'
+WSGI_APPLICATION = 'mama_ng_contentstore.wsgi.application'
 
 
 # Database
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://postgres:@localhost/django_mama_ng'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('MAMA_NG_CONTENTSTORE_DB_NAME',
+                               'mama_ng_contentstore'),
+        'USER': os.environ.get('MAMA_NG_CONTENTSTORE_DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('MAMA_NG_CONTENTSTORE_DB_PASS', 'postgres'),
+        'HOST': os.environ.get('MAMA_NG_CONTENTSTORE_DB_SERVICE', '127.0.0.1'),
+        'PORT': os.environ.get('MAMA_NG_CONTENTSTORE_DB_PORT', '5432')
+    }
 }
-
 
 
 # Internationalization
@@ -86,7 +91,7 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'staticfiles'
 
 # TEMPLATE_CONTEXT_PROCESSORS = (
 #     "django.core.context_processors.request",
@@ -95,7 +100,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Sentry configuration
 RAVEN_CONFIG = {
     # DevOps will supply you with this.
-    # 'dsn': 'http://public:secret@example.com/1',
+    'dsn': os.environ.get('MAMA_NG_CONTENTSTORE_SENTRY_DSN', ""),
 }
 
 # REST Framework conf defaults

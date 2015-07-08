@@ -116,9 +116,3 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
-
-
-try:
-    from local_settings import *   # flake8: noqa
-except ImportError:
-    pass

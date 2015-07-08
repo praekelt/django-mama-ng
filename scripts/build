@@ -2,4 +2,4 @@
 
 cp -a $REPO ./build/
 
-${PIP} install -r $REPO/django_mama_ng/requirements.txt
+${PIP} install -r $REPO/requirements.txt

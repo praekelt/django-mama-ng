@@ -5,4 +5,5 @@ psycopg2
 raven==5.1.1
 gunicorn
 django-filter
-git+ssh://git@github.com/praekelt/django-messaging-contentstore.git
+django-messaging-contentstore==0.1.7
+dj-static

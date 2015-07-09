@@ -1,4 +1,8 @@
-manage="${VENV}/bin/python ${INSTALLDIR}/${REPO}/manage.py"
+#!/bin/bash
 
-$manage syncdb --noinput --migrate
-$manage collectstatic --noinput
+# # Exit on errors from here.
+set -e
+
+composefile="${INSTALLDIR}/mama-ng-deploy/docker-compose.yml"
+
+docker-compose -f $composefile build

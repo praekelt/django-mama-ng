@@ -1,5 +1,8 @@
 #!/bin/bash
 
-cp -a $REPO ./build/
+set -e
 
-${PIP} install -r $REPO/requirements.txt
+# Nothing here because the sideloader box's kernel is not recent
+# enough to do anything with docker.
+
+cp -a $REPO ./build/

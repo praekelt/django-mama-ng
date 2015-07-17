@@ -93,6 +93,10 @@ STATICFILES_FINDERS = (
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
+
+
 # TEMPLATE_CONTEXT_PROCESSORS = (
 #     "django.core.context_processors.request",
 # )

@@ -91,7 +91,7 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'

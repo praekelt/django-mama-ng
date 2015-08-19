@@ -6,6 +6,16 @@ Django settings for mama_ng_contentstore project.
 import os
 
 
+def str_to_bool(s):
+    # Used for OS envvars that are strings
+    if s == 'True':
+        return True
+    elif s == 'False':
+        return False
+    else:
+        # evil ValueError that doesn't tell you what the wrong value was
+        raise ValueError
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -13,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'REPLACEME')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', None)
+DEBUG = str_to_bool(os.environ.get('DEBUG', 'False'))
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -120,5 +130,3 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
-
-print("DEBUG is: %s" % DEBUG)

@@ -4,7 +4,7 @@
 set -e
 
 # # Breaks until all in place
-composefile="${INSTALLDIR}/mamg-ng-deploy/docker-compose.yml"
+composefile="${INSTALLDIR}/mama-ng-deploy/docker-compose.yml"
 
 docker-compose -f "$composefile" build mamangcontentstore
 docker-compose up -d

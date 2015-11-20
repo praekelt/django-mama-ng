@@ -1,9 +1,2 @@
-Django==1.8
-djangorestframework
-dj-database-url
-psycopg2
-raven==5.1.1
-gunicorn
-django-filter
-django-messaging-contentstore==0.1.7
-dj-static
+# Our dependencies are all specified in setup.py.
+-e .

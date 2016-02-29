@@ -1,3 +1,4 @@
 FROM praekeltfoundation/django-bootstrap
-RUN ./manage.py collectstatic --noinput
+ENV DJANGO_SETTINGS_MODULE "mama_ng_contentstore.settings"
+RUN django-admin collectstatic --noinput
 CMD ["mama_ng_contentstore.wsgi:application"]

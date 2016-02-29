@@ -1,6 +1,0 @@
-buildscript: scripts/build.sh
-postinstall: scripts/postinstall.sh
-dependencies:
- - docker-engine
-pip:
- - docker-compose
